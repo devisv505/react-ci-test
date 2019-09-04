@@ -19,10 +19,10 @@ function App() {
         >
           Learn React
         </a>
+        <Button variant="contained" color="primary">
+          Hello World
+        </Button>
       </header>
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
     </div>
   );
 }
