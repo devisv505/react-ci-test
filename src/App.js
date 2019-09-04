@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import './App.css';
 
-class SimpleContainer extends React.Fragment {
+class SimpleContainer extends React.Component {
   render() {
     (
       <React.Fragment>
