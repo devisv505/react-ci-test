@@ -13,12 +13,12 @@ services:
   - docker
 
 script:
-  - npm test
+#  - npm test
   - docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
   - docker build . -t devisv/react-ci-test:dev --no-cache
   - docker push devisv/react-ci-test:dev
   - sshpass -p $SERVER_PASSWORD ssh -o StrictHostKeyChecking=no $SERVER_LOGIN@176.57.68.182 'docker stop $(docker ps -a -q)'
-  #- sshpass -p $SERVER_PASSWORD ssh -o StrictHostKeyChecking=no $SERVER_LOGIN@176.57.68.182 'docker rm $(docker ps -a -q)'
+# - sshpass -p $SERVER_PASSWORD ssh -o StrictHostKeyChecking=no $SERVER_LOGIN@176.57.68.182 'docker rm $(docker ps -a -q)'
   - sshpass -p $SERVER_PASSWORD ssh -o StrictHostKeyChecking=no $SERVER_LOGIN@176.57.68.182 'docker image rm $(docker image ls -q)'
   - sshpass -p $SERVER_PASSWORD ssh -o StrictHostKeyChecking=no $SERVER_LOGIN@176.57.68.182 'docker pull devisv/react-ci-test:dev'
   - sshpass -p $SERVER_PASSWORD ssh -o StrictHostKeyChecking=no $SERVER_LOGIN@176.57.68.182 'docker run -d -p 3001:3000 --rm devisv/react-ci-test:dev'
