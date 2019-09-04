@@ -1,29 +1,25 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import logo from './logo.svg';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import './App.css';
+
+class SimpleContainer extends React.Fragment {
+  render() {
+    (
+      <React.Fragment>
+        <CssBaseline/>
+        <Container maxWidth="sm">
+          <Typography component="div" style={{backgroundColor: '#cfe8fc', height: '100vh'}}/>
+        </Container>
+      </React.Fragment>
+    )
+  };
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
-      </header>
-    </div>
+    <SimpleContainer/>
   );
 }
 
